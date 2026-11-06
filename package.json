@@ -1,0 +1,50 @@
+{
+  "name": "xhs-ops",
+  "version": "0.1.0",
+  "description": "Xiaohongshu operations as a DeepSeek Harness (DSH) plugin",
+  "type": "module",
+  "license": "MIT",
+  "engines": {
+    "node": "^22.19.0 || >=24.0.0"
+  },
+  "main": "./lib/index.js",
+  "types": "./lib/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./lib/index.d.ts",
+      "default": "./lib/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib",
+    "config",
+    "references",
+    "SKILL.md",
+    "mapping.md",
+    "README.md",
+    "cordis.patch.yml"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc --noEmit",
+    "check:structure": "node scripts/verify-structure.mjs",
+    "prepublishOnly": "npm run build"
+  },
+  "peerDependencies": {
+    "@deepseek-ai/cordis": "*"
+  },
+  "devDependencies": {
+    "@deepseek-ai/cordis": "^4.0.1",
+    "@types/node": "^22.19.0",
+    "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "zod": "^4.1.12"
+  }
+}

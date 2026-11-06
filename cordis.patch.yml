@@ -1,0 +1,5 @@
+# DSH 插件安装入口：只声明宿主服务，具体运营能力由 src/service.ts 提供。
+- insert:
+    - id: xhs-ops
+      name: xhs-ops
+      config: {}
